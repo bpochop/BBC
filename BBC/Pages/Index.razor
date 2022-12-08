@@ -1,0 +1,158 @@
+﻿@page "/"
+
+<PageTitle>Index</PageTitle>
+
+<body class = "body-index">
+
+    <div class = "div1">
+
+        <div class = "">
+        
+            <p class="h1class">BBC</p>
+            @*<img class="logo" src="/images/logo.png" alt="sample" />*@
+           
+        
+        </div>
+
+
+        @*<SurveyPrompt Title="How is Blazor working for you?" />*@
+
+        <div class="menu-preview">
+            <div class = "popular-header">
+                <p class="pheader">Popular</p>
+            </div>
+
+            
+           @*Add nav link to the div, so that when they click on it itll take them to the drink menu.
+               <div class = "drink-container">
+               foreach(var drink in popular_drinks){
+                <div class="drink-card">
+                    <div class = "drink-name">
+                        <p class="drink-text">@drink</p>
+                    </div>
+
+
+
+                    <div class ="">
+                        <img class="drink-picture" src="images/logo.png">
+                    </div>
+                </div>
+
+                }
+           </div>
+           *@
+                
+            <div class = "drink-container ">
+                <div class="drink-card ">
+                    <div class = "drink-name">
+                        <p class="drink-text">@popular_drinks[0]</p>
+                    </div>
+
+
+                    <div class ="">
+                        <img class="drink-picture" src="images/logo.png">
+                    </div>
+
+
+
+                
+
+                </div>
+
+                 <div class="drink-card">
+                    <div class = "drink-name">
+                        <p class="drink-text">@popular_drinks[1]</p>
+                    </div>
+
+
+                    <div class ="">
+                        <img class="drink-picture" src="images/logo.png">
+                    </div>
+
+
+
+                </div>
+
+                <div class="drink-card">
+                    <div class = "drink-name">
+                        <p class="drink-text">@popular_drinks[2]</p>
+                    </div>
+
+
+                    <div class ="">
+                        <img class="drink-picture" src="images/logo.png">
+                    </div>
+
+
+
+                </div>
+
+                <div class="drink-card">
+                    <div class = "drink-name">
+                        <p class="drink-text">@popular_drinks[3]</p>
+                    </div>
+
+
+                    <div class ="">
+                        <img class="drink-picture" src="images/logo.png">
+                    </div>
+
+
+
+                </div>
+                
+
+             
+
+
+            </div>
+
+           <div class="menu-link">
+            <NavLink class="nav-link" href="menu">
+              
+                    
+                    <p class="menu-text">Full Menu</p>
+                
+               
+                
+                
+            </NavLink>
+        </div>
+
+        <div class="survey-link">
+            <NavLink class="nav-link" href="survey">
+              
+                    
+                    <p class="survey-text">Survey</p>
+                
+               
+                
+                
+            </NavLink>
+        </div>
+            
+        </div>
+
+
+       
+    </div>
+  
+</body>
+
+
+
+
+@code{
+
+    //in the future we will go into the backend and grab most popular drinks. 
+    List<string> popular_drinks = new List<string>
+    {
+        "Moscow Mule",
+        "Midori Sour",
+        "Vodka",
+        "Rum"
+        
+    };
+
+
+}

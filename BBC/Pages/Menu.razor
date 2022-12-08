@@ -1,0 +1,129 @@
+﻿@page "/menu"
+<h3>Menu</h3>
+<body class = "body-index">
+
+    <div class = "div1">
+
+        <div class = "header">
+        
+            <p class="h1class">BBC</p>
+            
+           
+        
+        </div>
+
+
+
+        <div class="menu-preview">
+             <div class = "menu-header">
+                    <p class="pheader">Full Menu</p>
+                </div>
+            <div class="Full-Menu">
+                @for(int i =0; i < totalDrinkList.Count(); i+=4 )
+                {
+                    <div class="MenuList">
+                         
+                        <p class="drink-text">@totalDrinkList[i]</p>
+                        <img class="menu-drink-picture" src="images/logo.png">
+
+                        <p class="drink-text">@totalDrinkList[i+1]</p>
+                        <img class="menu-drink-picture" src="images/logo.png">
+
+                        <p class="drink-text">@totalDrinkList[i+2]</p>
+                        <img class="menu-drink-picture" src="images/logo.png">
+
+                        
+                    </div>
+                }
+            </div>
+          </div>
+
+          <div class="menu-preview">
+
+            <div class ="Cocktail-menu">
+                <div class = "menu-header">
+                    <p class="pheader">Cocktails</p>
+                </div>
+                @foreach(var cocktail in cocktailDrinkList)
+                {
+                    <div class="fulldrinkList">
+                         
+                        <p class="drink-text">@cocktail</p>
+                        <img class="drink-picture" src="images/logo.png">
+              
+                    </div>
+                }
+
+                </div>
+            </div>
+            
+
+            <div class="menu-preview">
+                <div class ="shot-menu">
+                     <div class = "menu-header">
+                        <p class="pheader">Shots</p>
+                    </div>
+
+                    @foreach(var shot in shotDrinkLink)
+                    {
+                        <div class="fulldrinkList">
+                         
+                            <p class="drink-text">@shot</p>
+                            <img class="drink-picture" src="images/logo.png">
+              
+                        </div>
+                    }
+                </div>
+            </div>
+    
+
+
+            </div>
+
+
+       
+  
+</body>
+
+
+
+@code {
+
+    List<string> totalDrinkList  = new List<string>
+    {
+        "moscow Mule",
+        "Vodka Redbull",
+        "Midori Sour",
+        "Vodka Cran",
+        "Drink1",
+        "Drink2",
+        "Drink3",
+        "Drink4",
+        "Drink5",
+        "Rum",
+        "Vodka",
+        "Deez"
+    }; 
+    List<string>  cocktailDrinkList = new List<string>{
+        "moscow Mule",
+        "Vodka Redbull",
+        "Midori Sour",
+        "Vodka Cran",
+        "Drink1",
+        "Drink2",
+        "Drink3",
+        "Drink4",
+        "Drink5"
+    };
+    List<string>  shotDrinkLink = new List<string>
+    {
+        "Rum",
+        "Vodka",
+        "Deez",
+        "Drank3",
+        "Drink4",
+        "kjafkljdkf"
+    
+    };
+
+}

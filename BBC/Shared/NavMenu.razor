@@ -1,0 +1,113 @@
+﻿@*<div class="top-row ps-3 navbar navbar-dark">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="">BBC</a>
+        <button title="Navigation menu" class="navbar-toggler" @onclick="ToggleNavMenu">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+    </div>
+</div>
+
+<div class="@NavMenuCssClass" @onclick="ToggleNavMenu">
+    <nav class="flex-column">
+        <div class="nav-item px-3">
+            <NavLink class="nav-link" href="" Match="NavLinkMatch.All">
+                <span class="oi oi-home" aria-hidden="true"></span> Home
+            </NavLink>
+        </div>
+        <div class="nav-item px-3">
+            <NavLink class="nav-link" href="counter">
+                <span class="oi oi-plus" aria-hidden="true"></span> Counter
+            </NavLink>
+        </div>
+        <div class="nav-item px-3">
+            <NavLink class="nav-link" href="fetchdata">
+                <span class="oi oi-list-rich" aria-hidden="true"></span> Fetch data
+            </NavLink>
+        </div>
+    </nav>
+</div>
+
+@code {
+    private bool collapseNavMenu = true;
+
+    private string? NavMenuCssClass => collapseNavMenu ? "collapse" : null;
+
+    private void ToggleNavMenu()
+    {
+        collapseNavMenu = !collapseNavMenu;
+    }
+}
+*@
+
+ <NavLink class="nav-link " @onclick="()=>expandSubNav = !expandSubNav">
+        <span class="fixedheader" aria-hidden="true">
+            <img class="menuicon" src="images/3dots.jpg"  alt="sample"/>
+             
+        </span>
+    </NavLink>
+    @if (expandSubNav)
+    {
+
+      
+
+        <div class="bbcsidebar">
+          <NavLink class="nav-link " @onclick="()=>expandSubNav = !expandSubNav">
+            <span class="" aria-hidden="true">
+                <img class="menuicon" src="images/3dots.jpg"  alt="sample"/>
+                @*<div class = "menutxt">
+                   BBC 
+                </div>*@
+            </span>
+        </NavLink>
+
+            <div class="nvarbaritems">
+                <NavLink class="nav-link" href="" @onclick="()=>expandSubNav = !expandSubNav">
+                    <span><p class="remove-format">Home</p></span>
+                </NavLink>
+            </div>
+
+            <div class="nvarbaritems">
+                <NavLink class="nav-link" href="menu" @onclick="()=>expandSubNav = !expandSubNav">
+                    <span><p class="remove-format">Menu</p></span>
+                </NavLink>
+
+            </div>
+
+        
+            <div class="nvarbaritems">
+                <NavLink class="nav-link" href="" @onclick="()=>expandSubNav = !expandSubNav">
+                    <span><p class="remove-format">Survey</p></span>
+                </NavLink>
+
+            </div>
+
+
+        
+            <div class="nvarbaritems">
+                <NavLink class="nav-link" href="" @onclick="()=>expandSubNav = !expandSubNav">
+                    <span><p class="remove-format">Stats</p></span>
+                </NavLink>
+
+            </div>
+
+
+        
+            <div class="nvarbaritems">
+                <NavLink class="nav-link" href="" @onclick="()=>expandSubNav = !expandSubNav">
+                    <span><p class="remove-format">Settings </p></span>
+                </NavLink>
+
+            </div>
+            <div class="nvarbaritems">
+                <NavLink class="nav-link" href="" @onclick="()=>expandSubNav = !expandSubNav">
+                    <span><p class="remove-format">About</p></span>
+                </NavLink>
+
+            </div>
+        </div>
+    }
+@code {
+
+    private bool expandSubNav;
+
+}
