@@ -1,0 +1,172 @@
+﻿@page "/New-Drink"
+<body class = "body-index">
+
+    <div class = "div1">
+
+        <div class = "">
+        
+            <p class="h1class">BBC</p>
+            @*<img class="logo" src="/images/logo.png" alt="sample" />*@
+          
+           
+        
+        </div>
+
+      
+        <div class = "newdrink-preview-settings">
+             
+           <div class="NewDrinkLabel">
+               <input class="newdrinkinput" id="new-drink-name" type="text" placeholder="Drink Name"  />
+
+           </div>
+        
+           
+            <p class="NewDrinkLabel">Choose a picture:</p>
+           <div class="profilecontainer">
+               <span>
+                   <button class="profilebutton" @onclick=@toggleshotHightlight>
+                        <img class="newdrinkprofileshot @shothighlight" src="images/shot.png" />
+                   </button>
+
+                   <button class="profilebutton" @onclick=@togglecocktailHightlight>
+                        <img class="newdrinkprofilecocktail @cocktailhighlight" src="images/logo.png" />
+                   </button>
+               </span>
+           </div>
+           <div class="line"></div>
+           <div>
+               <h2 class="NewDrinkLabel">Ingredients</h2>
+                
+                             
+                @foreach(var x in TotalPumpStations)
+                    {
+                        <div class="dropdown" id="toggleDropdown">
+                            <div class ="typeNamecontainernewdrink">
+                                 <p>Ingredient @count</p>
+                                <select name="Type" id="Type" @onchange="@OnSelect" class ="select-dropdown">
+                                  <option value="" disabled="disabled" selected="selected">Type</option>
+                                    @foreach(var type in types)
+                                    {
+                                        <option value=@type>@type</option>
+                                    }
+                                }
+                                </select>
+
+                                <select name="drink" id="drink" class ="select-dropdown">
+                                @switch (currentType)
+                                {
+                                    @case"Alcohol":
+                                        @foreach(var alc in TotalLiquorList)
+                                        {
+                                            <option value=@alc>@alc</option>
+                                        }
+                                        break;
+                                    @case "Mixer":
+                                        @foreach(var mix in TotalMixerList)
+                                        {
+                                            <option value=@mix>@mix</option>
+                                        }
+                                        break; 
+
+                                }
+                                </select>
+
+                                  
+                             
+
+                            </div>
+                       
+                        @count++; 
+                         </div>
+                    }
+                }
+                
+            </div>
+
+        </div>
+        
+    </div>
+
+</body>
+
+
+@code {
+    string shothighlight { get; set; } = "";
+    string cocktailhighlight { get; set; } = "";
+    string profileChoice { get; set; } = "cocktail";
+    public int count { get; set; } = 0;
+    string currentType  {get; set; } ="";
+
+    List<string>  types  { get; set;} = new List<string>
+    {
+        "Alcohol",
+        "Mixer",
+        "Other"
+
+    };
+
+
+     public List<string>  TotalLiquorList  { get; set;} = new List<string>{
+         "",
+        "moscow Mule",
+        "Vodka Redbull",
+        "Midori Sour",
+        "Vodka Cran",
+        "Drink1",
+        "Drink2",
+        "Drink3",
+        "Drink4",
+        "Drink5"
+    };
+    List<string>  TotalMixerList  { get; set;} = new List<string>
+    {
+        "",
+        "Rum",
+        "Vodka",
+        "Deez",
+        "Drank3",
+        "Drink4",
+        "kjafkljdkf"
+
+    };
+
+    List<string>  TotalPumpStations  { get; set;} = new List<string>
+    {
+        "1",
+        "2",
+        "3",
+        "4",
+        "5",
+        "6",
+        "7",
+        "8",
+        "9",
+        "10"
+
+    };
+
+
+    public void toggleshotHightlight()
+    {
+        shothighlight = "highlight";
+        cocktailhighlight = "";
+        profileChoice = "shot";
+    }
+
+
+    public void togglecocktailHightlight()
+    {
+
+        shothighlight = "";
+        cocktailhighlight = "highlight";
+        profileChoice = "cocktail";
+    }
+
+
+    void OnSelect (ChangeEventArgs e)
+    {
+            currentType = e.Value.ToString();
+            Console.WriteLine("The selected drink is : " + currentType);
+    }
+
+}

@@ -1,0 +1,74 @@
+﻿
+
+ <NavLink class="nav-link " @onclick="()=>expandSubNav = !expandSubNav">
+        <span class="fixedheader" aria-hidden="true">
+            <img class="menuicon" src="images/3dots.jpg"  alt="sample"/>
+             
+        </span>
+    </NavLink>
+    @if (expandSubNav)
+    {
+
+      
+
+        <div class="bbcsidebar">
+          <NavLink class="nav-link " @onclick="()=>expandSubNav = !expandSubNav">
+            <span class="" aria-hidden="true">
+                <img class="menuicon" src="images/3dots.jpg"  alt="sample"/>
+                @*<div class = "menutxt">
+                   BBC 
+                </div>*@
+            </span>
+        </NavLink>
+
+            <div class="nvarbaritems">
+                <NavLink class="nav-link" href="" @onclick="()=>expandSubNav = !expandSubNav">
+                    <span><p class="remove-format">Home</p></span>
+                </NavLink>
+            </div>
+
+            <div class="nvarbaritems">
+                <NavLink class="nav-link" href="menu" @onclick="()=>expandSubNav = !expandSubNav">
+                    <span><p class="remove-format">Menu</p></span>
+                </NavLink>
+
+            </div>
+
+        
+            <div class="nvarbaritems">
+                <NavLink class="nav-link" href="" @onclick="()=>expandSubNav = !expandSubNav">
+                    <span><p class="remove-format">Survey</p></span>
+                </NavLink>
+
+            </div>
+
+
+        
+            <div class="nvarbaritems">
+                <NavLink class="nav-link" href="" @onclick="()=>expandSubNav = !expandSubNav">
+                    <span><p class="remove-format">Stats</p></span>
+                </NavLink>
+
+            </div>
+
+
+        
+            <div class="nvarbaritems">
+                <NavLink class="nav-link" href="settings" @onclick="()=>expandSubNav = !expandSubNav">
+                    <span><p class="remove-format">Settings </p></span>
+                </NavLink>
+
+            </div>
+            <div class="nvarbaritems">
+                <NavLink class="nav-link" href="about" @onclick="()=>expandSubNav = !expandSubNav">
+                    <span><p class="remove-format">About</p></span>
+                </NavLink>
+
+            </div>
+        </div>
+    }
+@code {
+
+    private bool expandSubNav;
+
+}

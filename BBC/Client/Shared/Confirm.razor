@@ -1,0 +1,105 @@
+﻿@page "/confirm/{type}/{drink}"
+@page "/confirm"
+@inject NavigationManager UriHelper
+
+<body class = "body-index">
+
+    <div class = "div1">
+
+        <div class = "">
+        
+            <p class="h1class">BBC</p>
+            @*<img class="logo" src="/images/logo.png" alt="sample" />*@
+           
+        
+        </div>
+        
+        <div class = "menu-preview">
+            <p class="confirm-drink-title">@drink</p>
+        
+
+            <div class = "ingredients-container">
+                <div>
+                    <ul class = "ingredients">
+                    @foreach(var x in ingredients)
+                    {
+                        <li>@x</li>
+                    }
+                    </ul>
+                </div>
+                <div>
+                    @if(type == "cocktail")
+                    {
+                        
+                        <img class="drink-picture-confirm" src="images/logo.png">
+                    }
+                    else
+                    {
+                        <img class="drink-picture-confirm" src="images/shot.png">
+                    }
+                </div>
+             
+            </div>
+
+           <div class="slidecontainer">
+              <input type="range" min="-20" max="20" step="5" class="slider"   id="rangeInput" @bind="@sliderValue" @oninput="@((e) => { sliderDisplayValue=(string)e.Value;})">
+             
+              <br />
+              <div class = "outputcontainer">
+                 
+                  <p class ="SliderLabel">
+                        This slider makes your drink @sliderDisplayValue% stronger. 
+                    </p>
+              </div>
+      
+            </div>
+
+       
+            <div>
+
+                
+                <button @onclick=@Navigate class="confirm-button">
+                    Back
+                </button>
+            
+                <button class="confirm-button">
+                    Confirm
+                </button>
+            </div>
+              
+        </div>
+    </div>
+
+</body>
+
+
+
+@code {
+    [Parameter]
+    public string type { get; set; }
+
+
+    [Parameter]
+    public string drink { get; set; }
+    List<string>  ingredients  { get; set;} = new List<string>
+    {
+        "Rum",
+        "Vodka",
+        "Deez",
+        "Drank3"
+
+    };
+    public int sliderValue = 0;
+    public string sliderDisplayValue = "0";
+
+    public void OnChangeHandler(object value)
+    {
+         sliderValue = (int)value + 5;
+    }
+
+    void Navigate()
+    {
+       UriHelper.NavigateTo("Menu");
+    }
+
+}

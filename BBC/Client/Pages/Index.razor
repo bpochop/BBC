@@ -1,0 +1,114 @@
+﻿@page "/"
+
+<PageTitle>Index</PageTitle>
+
+<body class = "body-index">
+
+    <div class = "div1">
+
+        <div class = "">
+        
+            <p class="h1class">BBC</p>
+            @*<img class="logo" src="/images/logo.png" alt="sample" />*@
+           
+        
+        </div>
+
+
+        @*<SurveyPrompt Title="How is Blazor working for you?" />*@
+
+        <div class="menu-preview">
+            <div class = "popular-header">
+                <p class="pheader">Popular</p>
+            </div>
+
+            
+      
+           
+             
+              <div style="display: inline-block">
+                    
+                @foreach(var drink in popular_drinks)
+                {
+                   
+                     <div class="drink-container" >
+
+                        @*This Changes the Icon based on the item in the list, so if it is a shot it will display a shot glass 
+
+                        instead of a cocktail glass*@
+                         @if(popular_drinks.Contains(@drink)){
+                            <a class = "menu-button" href="/confirm/cocktail/@drink">
+                                <div class = "drink-name">
+                                    <p class="drink-text">@drink</p>
+                                </div>
+                           
+                                <img class="drink-picture" src="images/logo.png">
+                             </a>
+                            }
+                            else{
+                                 <a class = "menu-button" href="/confirm/shot/@drink">
+                                    <div class = "drink-name">
+                                        <p class="drink-text">@drink</p>
+                                    </div>
+                                <img class="drink-picture" src="images/shot.png">
+                                 </a>
+                            }
+                    
+                    
+                 
+                    </div>
+                }
+        </div>
+             
+
+
+
+           <div class="menu-link">
+            <NavLink class="nav-link" href="menu">
+              
+                    
+                    <p class="menu-text">Full Menu</p>
+                
+               
+                
+                
+            </NavLink>
+        </div>
+
+        <div class="survey-link">
+            <NavLink class="nav-link" href="survey">
+              
+                    
+                    <p class="survey-text">Survey</p>
+                
+               
+                
+                
+            </NavLink>
+        </div>
+            
+        </div>
+
+
+       
+    </div>
+  
+</body>
+
+
+
+
+@code{
+    string temp { get; set; } = "";
+    string[] popular_drinks =
+        {
+        "Moscow Mule",
+        "Midori Sour",
+        "Vodka",
+        "Rum",
+        "Test",
+        "Lmao"
+    };
+
+
+}

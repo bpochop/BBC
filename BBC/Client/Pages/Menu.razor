@@ -1,0 +1,329 @@
+﻿@page "/menu"
+@inject NavigationManager UriHelper
+
+
+<body class = "body-index">
+
+
+        <div class = "header">
+        
+            <p class="h1class">BBC</p>
+            
+        </div>
+
+   
+        @*The style attribute is changed based on how many items are in the cocktailLIst*@
+            <div class="menu-preview" style="height:@cocktailstyleattribute">
+
+
+    
+
+
+                <button class="menu-button" @onclick="@ToggleCocktail">
+
+                    <div style="display: flex">
+                         <p class="menu-text-cocktails">Cocktails</p>
+                          <img class = "dropdown-arrow" src="images/dropdownarrow.png" />
+                    </div>
+
+            
+                  </button>
+
+                  <div style="display: inline-block">
+                       @foreach(var drink in cocktailDrinkList)
+                        {
+                            <div hidden=@HideCockTailLabel class="drink-container" >
+
+                                    <a class = "menu-button" href="/confirm/cocktail/@drink">
+                                        <div class = "drink-name">
+                                            <p class="drink-text">@drink</p>
+                                        </div>
+                                        <img class="drink-picture" src="images/logo.png">
+                                    </a>
+
+                            </div>
+                        }
+                </div>
+
+            </div>
+
+        
+            @*The style attribute is changed based on how many items are in the shotlist*@
+            <div class="menu-preview" style="height:@shotstyleattribute">
+                <button class="menu-button" @onclick="@ToggleShots">
+
+                    <div style="display: flex">
+                         <p class="menu-text-shots">Shots</p>
+                          <img class = "dropdown-arrow" src="images/dropdownarrow.png" />
+                    </div>
+
+            
+                  </button>
+
+              
+                    
+                  <div style="display: inline-block">
+                     @foreach(var drink in shotDrinkLink)
+                   {
+                   
+                   
+                       <div hidden=@HideShotsLabel class="drink-container" >
+
+                            <a class = "menu-button" href="/confirm/shot/@drink">
+                                <div class = "drink-name">
+                                    <p class="drink-text">@drink</p>
+                                </div>
+                                <img class="drink-picture" src="images/shot.png">
+                            </a>
+
+
+                     
+                
+                        </div>
+          
+                    }
+                </div>
+
+            </div>
+
+
+        
+            @*The style attribute is changed based on how many items are in the fullmenu*@
+            <div class="menu-preview" style="height:@totalstyleattribute">
+                <button class="menu-button" @onclick="@ToggleFullMenu">
+
+                    <div style="display: flex">
+                         <p class="menu-text-fullmenu">Full Menu</p>
+                          <img class = "dropdown-arrow" src="images/dropdownarrow.png" />
+                    </div>
+
+            
+                  </button>
+
+              
+
+              
+                  <div style="display: inline-block">
+                    
+                    @foreach(var drink in totalDrinkList)
+                    {
+                        <div hidden=@HideFullMenuLabel class="drink-container" >
+
+                            @*This Changes the Icon based on the item in the list, so if it is a shot it will display a shot glass 
+
+                            instead of a cocktail glass*@
+                             @if(cocktailDrinkList.Contains(@drink)){
+                                <a class = "menu-button" href="/confirm/cocktail/@drink">
+                                    <div class = "drink-name">
+                                        <p class="drink-text">@drink</p>
+                                    </div>
+                           
+                                    <img class="drink-picture" src="images/logo.png">
+                                 </a>
+                                }
+                                else{
+                                     <a class = "menu-button" href="/confirm/shot/@drink">
+                                        <div class = "drink-name">
+                                            <p class="drink-text">@drink</p>
+                                        </div>
+                                    <img class="drink-picture" src="images/shot.png">
+                                     </a>
+                                }
+                       
+
+
+                    
+                 
+                        </div>
+                    }
+            </div>
+
+        </div>
+
+ 
+          <div class="menu-link">
+            <NavLink class="nav-link" href="New-Drink">
+              
+                    <p class="menu-text">New Drink</p>
+                
+               
+            </NavLink>
+        </div>
+
+       
+
+
+
+</body>
+
+
+@code{
+
+    int multiplyer  { get; set;} = 0;
+    public int cocktailCount { get; set; } = 0;
+    string pageSytle { get; set; } = "200%";
+
+    bool expandCockatil  { get; set;} = false;
+    bool expandShot  { get; set;} = false;
+    bool expandFullMenu  { get; set;} = false;
+
+    string totalstyleattribute { get; set; } = "";
+    string cocktailstyleattribute { get; set; } = "";
+    string shotstyleattribute { get; set; } = "";
+
+    private bool HideCockTailLabel   {get;set;} = true;
+    private bool HideShotsLabel { get; set; } = true;
+    private bool HideFullMenuLabel { get; set;  } = true; 
+
+    //This function checks how many items are in the List and returns the multiplyer. i.e 70% or 50%
+    public int divMultipylerCalc(int x)
+    {
+        int multiplyer;
+        if (x < 8)
+        {
+            multiplyer = 70;
+        }
+        else
+        {
+            multiplyer = 50;
+        }
+
+        return multiplyer;
+
+    }
+
+
+    //These, will eventually contact the backend and get what we are currently serving.
+    List<string> totalDrinkList  { get; set;} = new List<string>
+    {
+        "moscow Mule",
+        "Vodka Redbull",
+        "Midori Sour",
+        "Vodka Cran",
+        "Drink1",
+        "Drink2",
+        "Drink3",
+        "Drink4",
+        "Drink5",
+        "Rum",
+        "Vodka",
+        "test",
+        "deez",
+        "LOL",
+        "new Drank",
+        "test tube",
+        "bbbb"
+    }; 
+    public List<string>  cocktailDrinkList  { get; set;} = new List<string>{
+        "moscow Mule",
+        "Vodka Redbull",
+        "Midori Sour",
+        "Vodka Cran",
+        "Drink1",
+        "Drink2",
+        "Drink3",
+        "Drink4",
+        "Drink5"
+    };
+    List<string>  shotDrinkLink  { get; set;} = new List<string>
+    {
+        "Rum",
+        "Vodka",
+        "Deez",
+        "Drank3",
+        "Drink4",
+        "kjafkljdkf"
+
+    };
+
+
+
+
+    //This sets the initial div sizes. 
+    protected override async Task OnInitializedAsync()
+    {
+        cocktailstyleattribute = "15%";
+        shotstyleattribute = "15%";
+        totalstyleattribute = "15%";
+
+        cocktailCount = cocktailDrinkList.Count;
+
+    }
+
+
+    //this function only calculates the shot div as each div can have a different number of items. 
+    //there may be a way to generalize it but I can optimize later
+    private void calculateShotsDiv()
+    {
+        //This grabs the multiplyer from above
+        multiplyer = divMultipylerCalc(shotDrinkLink.Count());
+
+        //THis divides by 4 because I want 4 drinks in a row.
+        double divMultiplyer = (shotDrinkLink.Count() / 4)*multiplyer;
+
+
+        shotstyleattribute = divMultiplyer.ToString() + "%";
+        
+        //This just resets the div size if it is collapsed. .
+        if (HideShotsLabel)
+        {
+            shotstyleattribute = "15%";
+        }
+    }
+
+    private void calculateCocktailsDiv()
+    {
+        multiplyer = divMultipylerCalc(cocktailDrinkList.Count());
+        double divMultiplyer = (cocktailDrinkList.Count() / 4)*multiplyer;
+        cocktailstyleattribute = divMultiplyer.ToString() + "%";
+
+        
+        if (HideCockTailLabel)
+        {
+            cocktailstyleattribute = "15%";
+        }
+
+    }
+
+    private void calculateFullMenuDiv()
+    {
+        multiplyer = divMultipylerCalc(totalDrinkList.Count());
+        double divMultiplyer = (totalDrinkList.Count() / 4)*multiplyer;
+        totalstyleattribute = divMultiplyer.ToString() + "%";
+
+        if (HideFullMenuLabel)
+        {
+            totalstyleattribute = "15%";
+        }
+
+    }
+
+
+
+    private void ToggleCocktail()
+    {
+        HideCockTailLabel =   !HideCockTailLabel;
+         calculateCocktailsDiv();
+    } 
+
+
+
+    private void ToggleShots()
+    {
+        HideShotsLabel =   !HideShotsLabel;
+        calculateShotsDiv();
+    } 
+
+
+
+    private void ToggleFullMenu()
+    {
+        HideFullMenuLabel =   !HideFullMenuLabel;
+        calculateFullMenuDiv();
+    } 
+
+      void Navigate()
+    {
+       UriHelper.NavigateTo("New-Drink");
+    }
+}

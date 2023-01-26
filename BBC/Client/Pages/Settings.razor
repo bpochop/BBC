@@ -1,0 +1,118 @@
+﻿@page "/settings"
+
+
+<body class = "body-index">
+
+    <div class = "div1">
+
+        <div class = "">
+        
+            <p class="h1class">BBC</p>
+            @*<img class="logo" src="/images/logo.png" alt="sample" />*@
+           
+        
+        </div>
+        <div class = "menu-preview-settings">
+            <div>
+                <p class = "settings-header">Settings</p>
+            </div>
+
+            <div>
+                <button class="confirm-button">
+                    Refresh Pumps
+                </button>
+
+                <button class="confirm-button">
+                    Flush Lines
+                </button>
+            </div>
+
+            <div class="line"></div>
+            <div class ="outputcontainer">
+                <div>
+                    <p class="pumps-header">Pump Station 1</p>
+                    <p>(To the right of the Machine)</p>
+                 
+
+                    @foreach(var x in Station1Drinks)
+                    {
+                         <div class="dropdown" id="toggleDropdown">
+                             <div class ="typeNamecontainer">
+                            
+                                 <p>Pump @count</p>
+                                <select name="Type" id="Type" class ="select-dropdown">
+                                  <option value="" disabled="disabled" selected="selected">Type</option>
+                                  <option value="Alcohol">Alcohol</option>
+                                  <option value="Mixer">Mixer</option>
+                                  <option value="Other">Other</option>
+                                </select>
+
+                                 <select name="drink" id="drink" class ="select-dropdown">
+                                    @foreach(var y in Station1Drinks)
+                                    {
+                                    
+                                        <option value="drink">@y</option>
+                                    }
+                                </select>
+
+                            </div>
+                        </div>
+                        count++; 
+                    }
+                </div>
+
+             
+
+          @*       <div class = "">
+                    <p>Pump Station 2</p>
+                    <p>(To the left of the Machine)</p>
+                </div>
+*@
+            </div>
+        </div>
+        
+    </div>
+
+
+
+@*    <div class="header-sign">
+    <div class="dropdown" id="toggleDropdown">
+        <button @onclick="Show" @onblur="Hide" class="button-md" type="button">
+            <i data-feather="user"></i>
+            <span>Personal cab</span>
+        </button>
+        <ul class="dropdown-list @(isActive ? "is-active" : "")">
+            <li class="dropdown-item">
+                <a class="dropdown-link" href="/cabinet">
+                    <p class="text-md">Cabinet</p>
+                </a>
+            </li>
+            <li class="dropdown-item">
+                <a @onclick="LogOutAsync" class="dropdown-link" href="">
+                    <p class="text-md">LogOut</p>
+                </a>
+            </li>
+        </ul>
+    </div>
+</div>
+*@
+</body>
+
+
+
+@code {
+
+    private int count =1; 
+
+
+    List<string>  Station1Drinks  { get; set;} = new List<string>
+    {
+        "",
+        "Rum",
+        "Vodka",
+        "Deez",
+        "Drank3"
+
+    };
+
+}

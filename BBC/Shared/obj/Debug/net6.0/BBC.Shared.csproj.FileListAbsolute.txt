@@ -1,0 +1,12 @@
+C:\Users\bpoch\source\repos\BBC\BBC\Shared\bin\Debug\net6.0\BBC.Shared.deps.json
+C:\Users\bpoch\source\repos\BBC\BBC\Shared\bin\Debug\net6.0\BBC.Shared.dll
+C:\Users\bpoch\source\repos\BBC\BBC\Shared\bin\Debug\net6.0\BBC.Shared.pdb
+C:\Users\bpoch\source\repos\BBC\BBC\Shared\obj\Debug\net6.0\BBC.Shared.csproj.AssemblyReference.cache
+C:\Users\bpoch\source\repos\BBC\BBC\Shared\obj\Debug\net6.0\BBC.Shared.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\bpoch\source\repos\BBC\BBC\Shared\obj\Debug\net6.0\BBC.Shared.AssemblyInfoInputs.cache
+C:\Users\bpoch\source\repos\BBC\BBC\Shared\obj\Debug\net6.0\BBC.Shared.AssemblyInfo.cs
+C:\Users\bpoch\source\repos\BBC\BBC\Shared\obj\Debug\net6.0\BBC.Shared.csproj.CoreCompileInputs.cache
+C:\Users\bpoch\source\repos\BBC\BBC\Shared\obj\Debug\net6.0\BBC.Shared.dll
+C:\Users\bpoch\source\repos\BBC\BBC\Shared\obj\Debug\net6.0\refint\BBC.Shared.dll
+C:\Users\bpoch\source\repos\BBC\BBC\Shared\obj\Debug\net6.0\BBC.Shared.pdb
+C:\Users\bpoch\source\repos\BBC\BBC\Shared\obj\Debug\net6.0\ref\BBC.Shared.dll
