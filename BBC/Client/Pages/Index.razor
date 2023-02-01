@@ -1,4 +1,6 @@
 ﻿@page "/"
+@inject HttpClient Http
+@using BBC.Shared
 
 <PageTitle>Index</PageTitle>
 
@@ -8,7 +10,7 @@
 
         <div class = "">
         
-            <p class="h1class">BBC</p>
+            @*<p class="h1class">BBC</p>*@
             @*<img class="logo" src="/images/logo.png" alt="sample" />*@
            
         
@@ -36,23 +38,14 @@
                         @*This Changes the Icon based on the item in the list, so if it is a shot it will display a shot glass 
 
                         instead of a cocktail glass*@
-                         @if(popular_drinks.Contains(@drink)){
-                            <a class = "menu-button" href="/confirm/cocktail/@drink">
-                                <div class = "drink-name">
-                                    <p class="drink-text">@drink</p>
-                                </div>
-                           
-                                <img class="drink-picture" src="images/logo.png">
-                             </a>
-                            }
-                            else{
-                                 <a class = "menu-button" href="/confirm/shot/@drink">
-                                    <div class = "drink-name">
-                                        <p class="drink-text">@drink</p>
-                                    </div>
-                                <img class="drink-picture" src="images/shot.png">
-                                 </a>
-                            }
+                        
+                        <a class = "menu-button" href="/confirm/shot/@drink">
+                        <div class = "drink-name">
+                            <p class="drink-text">@drink</p>
+                        </div>
+                            <img class="drink-picture" src="images/shot.png">
+                        </a>
+                            
                     
                     
                  
@@ -99,16 +92,17 @@
 
 
 @code{
+    public List<string> popular_drinks { get; set; } = new List<string>();
+
+
     string temp { get; set; } = "";
-    string[] popular_drinks =
-        {
-        "Moscow Mule",
-        "Midori Sour",
-        "Vodka",
-        "Rum",
-        "Test",
-        "Lmao"
-    };
+
+
+    protected override async Task OnInitializedAsync()
+    {
+        popular_drinks = await Http.GetFromJsonAsync<List<string>>("Drinks");
+    }
+
 
 
 }

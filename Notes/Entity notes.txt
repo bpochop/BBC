@@ -1,0 +1,5 @@
+Scaffold-DbContext -Provider Microsoft.EntityFrameworkCore.Sqlite "Data Source=C:\Users\bpoch\source\repos\BBC\BBC\Server\db\db.sqlite3;"  -OutputDir BBC.Shared.Models -context BBC -Project BBC.Shared -force
+
+Install-Package Microsoft.EntityFrameworkCore.Tools -Version 3.0.0
+Install-Package Microsoft.EntityFrameworkCore.SqlServer -Version 3.0.0
+Install-Package Microsoft.EntityFrameworkCore.Sqlite

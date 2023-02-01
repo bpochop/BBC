@@ -196,15 +196,15 @@
       "mscorlib.dll": "sha256-ghlJNtzzYlKIliGPuf0A0Yu6dmLycSx3F9uyeddFb\/g=",
       "netstandard.dll": "sha256-qpOz\/RBwhlIYfaE2GDEmjiproxkvSf2b9GeqHxvH+lg=",
       "System.Private.CoreLib.dll": "sha256-sfzSZ3YKC2rpF77TVOKLuPgQag93QXr9U4AUc9d\/LKA=",
-      "BBC.Shared.dll": "sha256-EGeCWNm\/fOzgSCzLd3oDoVP2rE5yA9N1coLSBZuYsRc=",
-      "BBC.Client.dll": "sha256-iuTj3XvEGpbUGKX1iAYvFir0l4MFveel4go1o2QNrI0="
+      "BBC.Shared.dll": "sha256-kWk4y7GHu7vfYVQVH69S9wnCVSeXK9TgySjFZhrqS2A=",
+      "BBC.Client.dll": "sha256-2wZHnlvyOYWsaQxYtmSUxHf9fnj0L2fKlLrAMRcCxjA="
     },
     "extensions": null,
     "lazyAssembly": null,
     "libraryInitializers": null,
     "pdb": {
-      "BBC.Shared.pdb": "sha256-ALjMpiSGyDsBdIxzZl+eRQV1APaf+2ZDBQHWaGUEYZo=",
-      "BBC.Client.pdb": "sha256-\/X0G1cxmklN8RY+VAIgXJ+SMd+D6DbnhKO68QqFZyKY="
+      "BBC.Shared.pdb": "sha256-i2CdWX6bgbI2RH\/yl4fdngSfcHHRnUBHA3\/pnLKMJrM=",
+      "BBC.Client.pdb": "sha256-6ijzIrF7nMNSE6\/BPxnoCxIr5bRju7dmTucd9q2QVwI="
     },
     "runtime": {
       "dotnet.6.0.5.b37p40t594.js": "sha256-783uOt0jgblQfP6Yz5TJeuW2xxtl6UHZQPngZtCz79U=",

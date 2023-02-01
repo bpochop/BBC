@@ -3,6 +3,8 @@
 
 html, body {
     font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    background: #0c0c0c repeat;
+    width: 100%;
 }
 
 h1:focus {
@@ -80,13 +82,14 @@ a, .btn-link {
     background: #0c0c0c;
     height: 95vh;
     width: 100%;
+    max-width: 500vh;
 }
 
 .body-Background {
-    background: #0c0c0c repeat !important;
+    background: #0c0c0c repeat ;
     width: 100%;
     height: 100vh;
-    max-width:500vh; 
+    margin:0; 
     /*min-height:auto;*/
 }
 
@@ -99,8 +102,8 @@ a, .btn-link {
 }
 
 .h1class {
-    position: fixed;
-    margin-left: 30%;
+    /*position: fixed;*/
+    margin-left: -5%;
     margin-top: -23%; 
     padding: 40px;
     font-family: "Vibur", sans-serif;
@@ -110,15 +113,17 @@ a, .btn-link {
     color: white;
     font-weight:bolder; 
     font-size: 70px; 
-    z-index: -1;
+    z-index: 0;
     /*border: 3px solid purple;*/
 }
 
-.logo{
-    height:20vh;
+.nav-link-z {
+    z-index: -2;
+}
+.logo {
+    height: 20vh;
     margin-left: 25%;
-    margin-top: -2%; 
-    
+    margin-top: -2%;
 }
 
 .Full-Menu {
@@ -149,14 +154,7 @@ p.pheader {
     margin:0; 
 }
 
-.menu-preview {
-    height: 80%;
-    width: 108%;
-    margin-left: -5%;
-    background: #202020;
-    border-radius: 60px;
-    margin-bottom: 2%; 
-}
+
 .confirm-drink-title {
     font-weight: bolder;
     font-size: 50px;
@@ -341,7 +339,7 @@ p.pheader {
 .dropdown-arrow {
     height: 10vh;
     padding-top: 10%; 
-    
+    margin-left: -25%; 
 }
 
 
@@ -349,7 +347,7 @@ p.pheader {
 .drink-container
 {
     margin-left: 5%;
-    margin-bottom: 2%; 
+    margin-bottom: 2%;
     display: inline-block;
     background: darkgrey;
     border-radius: 30px;
@@ -366,13 +364,43 @@ p.pheader {
 }
 
 
+.menu-preview-card {
+    z-index: -1;
+    height: 100%;
+    width: 100%;
+    background: #202020;
+    border-radius: 60px;
+    margin-bottom: 2%;
+    margin-top: -10%;
+    padding-top: 20%;
+
+    position: relative;
+}
+
+.menu-preview {
+    height: 80%;
+    width: 108%;
+    margin-left: -5%;
+    background: #202020;
+    border-radius: 60px;
+    margin-bottom: 2%;
+}
+
+.menu-preview-test {
+    background: #202020;
+    border-radius: 60px;
+    width: 100%;
+    margin-left: 0%;
+    margin-bottom: 2%;
+}
+
 .menu-link {
     height: 10vh;
     background: darkgrey;
     border-radius: 30px;
-    text-align: center; 
-    margin-top:15%;  
-    margin-left: 5%; 
+    text-align: center;
+    margin-top: 15%;
+    margin-left: 5%;
     width: 90%
 }
 
