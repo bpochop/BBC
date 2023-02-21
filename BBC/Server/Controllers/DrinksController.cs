@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using BBC.Shared;
+using BBC.Server.Helpers;
 
 namespace BBC.Server.Controllers
 {
@@ -7,6 +8,7 @@ namespace BBC.Server.Controllers
     [Route("[controller]")]
     public class DrinksController : Controller
     {
+        
         public IActionResult Index()
         {
             return View();
@@ -15,6 +17,11 @@ namespace BBC.Server.Controllers
         [HttpGet]
         public ActionResult Get()
         {
+
+            drinkHelper getDrinks = new drinkHelper();
+
+            var test = getDrinks.GetMenu("Shot");
+
             var drinks = new List<string> { "drink1", "drink2", "drink2electricbugaloo", "drank", "pooru" };
 
             if (drinks is not null)
@@ -24,31 +31,24 @@ namespace BBC.Server.Controllers
             return NotFound("Coffeee not found");
         }
 
-        [HttpGet]
-        public ActionResult Get(string type)
+
+        [HttpGet("GetPopularDrinks")]
+        public ActionResult GetPopularDrinks()
         {
-            var Cocktails = new List<string> { "drink1", "drink2", "drink2electricbugaloo", "drank", "pooru" };
 
-            var Shots = new List<string> { "drink1", "drink2", "drink2electricbugaloo", "drank", "pooru" };
+            //drinkHelper getDrinks = new drinkHelper();
 
-            var fullMenu = new List<string> { "drink1", "drink2", "drink2electricbugaloo", "drank", "pooru" };
+            //var test = getDrinks.GetMenu("Shot");
 
-            if (type is not null && type == "cocktails")
+            var drinks = new List<string> { "drink1", "drink2", "drink2electricbugaloo", "test3", "pooru" };
+
+            if (drinks is not null)
             {
-                return Ok(Cocktails);
+                return Ok(drinks);
             }
-            else if(type is not null && type == "shots")
-            {
-                return Ok(Shots);
-
-            }
-            else
-            {
-                return Ok(fullMenu);
-            }
-
-
             return NotFound("Coffeee not found");
         }
+
+
     }
 }

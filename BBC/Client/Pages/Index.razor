@@ -100,7 +100,9 @@
 
     protected override async Task OnInitializedAsync()
     {
-        popular_drinks = await Http.GetFromJsonAsync<List<string>>("Drinks");
+        //popular_drinks = await Http.GetFromJsonAsync<List<string>>("GetPopularDrinks");
+
+        popular_drinks = await Http.GetFromJsonAsync<List<string>>("Drinks/GetPopularDrinks");
     }
 
 

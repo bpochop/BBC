@@ -1,8 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
+using BBC.Shared.BBC.Shared.Models;
 using Microsoft.EntityFrameworkCore;
 
-namespace BBC.Shared.BBC.Shared.Models;
+namespace BBC.Shared.Models;
 
 public partial class BBC : DbContext
 {
