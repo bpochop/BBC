@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace BBC.Shared.BBC.Shared.Models;
+namespace BBC.Shared.Models;
 
 public partial class Menu
 {
@@ -14,4 +14,6 @@ public partial class Menu
     public string TypeId { get; set; } = null!;
 
     public string Picture { get; set; } = null!;
+
+    public int Count { get; set; }  
 }

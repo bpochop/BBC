@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "3PA1IIVmSY5YwF5fnFdwOL52EToaRCrwr3Lk91DDJI+ZyNtTRpYk0DzJR1X7J+2COcVAqgCTpxF6Q/x4+562/g==",
+  "dgSpecHash": "oUe3VZmiqLUBAG3MPgiQm6q2CYAuYhPUvTOG0Jc+T4Pmlp1YIbMiY7dU2n7kKznv9GzhAypabOg2FciHUDIIvg==",
   "success": true,
   "projectFilePath": "C:\\Users\\bpoch\\source\\repos\\BBC\\BBC\\Client\\BBC.Client.csproj",
   "expectedPackageFiles": [
@@ -100,7 +100,7 @@
     "C:\\Users\\bpoch\\.nuget\\packages\\system.threading.tasks\\4.3.0\\system.threading.tasks.4.3.0.nupkg.sha512",
     "C:\\Users\\bpoch\\.nuget\\packages\\system.threading.tasks.extensions\\4.5.4\\system.threading.tasks.extensions.4.5.4.nupkg.sha512",
     "C:\\Users\\bpoch\\.nuget\\packages\\system.windows.extensions\\5.0.0\\system.windows.extensions.5.0.0.nupkg.sha512",
-    "C:\\Users\\bpoch\\.nuget\\packages\\microsoft.netcore.app.runtime.mono.browser-wasm\\7.0.2\\microsoft.netcore.app.runtime.mono.browser-wasm.7.0.2.nupkg.sha512"
+    "C:\\Users\\bpoch\\.nuget\\packages\\microsoft.netcore.app.runtime.mono.browser-wasm\\7.0.3\\microsoft.netcore.app.runtime.mono.browser-wasm.7.0.3.nupkg.sha512"
   ],
   "logs": []
 }

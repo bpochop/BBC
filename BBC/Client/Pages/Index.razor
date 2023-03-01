@@ -1,6 +1,6 @@
 ﻿@page "/"
 @inject HttpClient Http
-@using BBC.Shared
+@using drinkMenu = BBC.Shared.Models
 
 <PageTitle>Index</PageTitle>
 
@@ -41,7 +41,7 @@
                         
                         <a class = "menu-button" href="/confirm/shot/@drink">
                         <div class = "drink-name">
-                            <p class="drink-text">@drink</p>
+                            <p class="drink-text">@drink.Name</p>
                         </div>
                             <img class="drink-picture" src="images/shot.png">
                         </a>
@@ -92,7 +92,7 @@
 
 
 @code{
-    public List<string> popular_drinks { get; set; } = new List<string>();
+    public List<drinkMenu.Menu> popular_drinks { get; set; } = new List<drinkMenu.Menu>();
 
 
     string temp { get; set; } = "";
@@ -102,7 +102,19 @@
     {
         //popular_drinks = await Http.GetFromJsonAsync<List<string>>("GetPopularDrinks");
 
-        popular_drinks = await Http.GetFromJsonAsync<List<string>>("Drinks/GetPopularDrinks");
+        string type = "popular";
+        //popular_drinks = await Http.GetFromJsonAsync<List<string>>($"Drinks/{type}");
+
+        HttpResponseMessage response = await Http.GetAsync($"Drinks/{type}");
+
+        if (response.IsSuccessStatusCode)
+        {
+            popular_drinks = await response.Content.ReadFromJsonAsync<List<drinkMenu.Menu>>();
+        }
+        else
+        {
+            popular_drinks = null;
+        }
     }
 
 

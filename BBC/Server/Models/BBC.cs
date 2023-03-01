@@ -1,32 +1,31 @@
 ﻿using System;
 using System.Collections.Generic;
-using BBC.Shared.BBC.Shared.Models;
+using BBC.Shared.Models;
 using Microsoft.EntityFrameworkCore;
 
-namespace BBC.Shared.Models;
+namespace BBC.Server.Models;
 
-public partial class BBC : DbContext
+public class BBC_DB : DbContext
 {
-    public BBC()
+    public BBC_DB()
     {
     }
 
-    public BBC(DbContextOptions<BBC> options)
-        : base(options)
+    public BBC_DB(DbContextOptions options) : base(options)
     {
     }
 
-    public virtual DbSet<DisplaySetting> DisplaySettings { get; set; }
+    public  DbSet<DisplaySetting> DisplaySettings { get; set; }
 
-    public virtual DbSet<IngredientId> IngredientIds { get; set; }
+    public  DbSet<IngredientId> IngredientIds { get; set; }
 
-    public virtual DbSet<Menu> Menus { get; set; }
+    public DbSet<Menu> Menus { get; set; }
 
-    public virtual DbSet<Progress> Progresses { get; set; }
+    public  DbSet<Progress> Progresses { get; set; }
 
-    public virtual DbSet<Pump> Pumps { get; set; }
+    public  DbSet<Pump> Pumps { get; set; }
 
-    public virtual DbSet<Ratio> Ratios { get; set; }
+    public  DbSet<Ratio> Ratios { get; set; }
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
 #warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see http://go.microsoft.com/fwlink/?LinkId=723263.
@@ -85,6 +84,9 @@ public partial class BBC : DbContext
             entity.Property(e => e.TypeId)
                 .HasColumnType("varchar(2)")
                 .HasColumnName("type_id");
+            entity.Property(e => e.Count)
+                .HasColumnType("int")
+                .HasColumnName("Count");
         });
 
         modelBuilder.Entity<Progress>(entity =>
@@ -126,8 +128,8 @@ public partial class BBC : DbContext
             entity.Property(e => e.MenuId).HasColumnName("menu_id");
         });
 
-        OnModelCreatingPartial(modelBuilder);
+        //OnModelCreatingPartial(modelBuilder);
     }
 
-    partial void OnModelCreatingPartial(ModelBuilder modelBuilder);
+    //partial void OnModelCreatingPartial(ModelBuilder modelBuilder);
 }

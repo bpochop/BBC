@@ -1,6 +1,10 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using BBC.Shared;
 using BBC.Server.Helpers;
+using Microsoft.EntityFrameworkCore;
+using BBC.Client.Pages;
+using BBC.Shared.Models;
+using Menu = BBC.Shared.Models.Menu;
 
 namespace BBC.Server.Controllers
 {
@@ -14,41 +18,36 @@ namespace BBC.Server.Controllers
             return View();
         }
 
-        [HttpGet]
-        public ActionResult Get()
+        [HttpGet("{type}")]
+        public ActionResult<List<Menu>> Get(string type)
         {
 
             drinkHelper getDrinks = new drinkHelper();
+          
+            
 
-            var test = getDrinks.GetMenu("Shot");
+            List<Menu> returnObj = new List<Menu>();
 
-            var drinks = new List<string> { "drink1", "drink2", "drink2electricbugaloo", "drank", "pooru" };
-
-            if (drinks is not null)
+            switch (type)
             {
-                return Ok(drinks);
+                case "popular":
+                    returnObj = getDrinks.GetMenu(type);
+                    return returnObj.Count > 0 ? Ok(returnObj) : NotFound("Popular Drinks Not Found");
+                case "full_menu":
+                    returnObj = getDrinks.GetMenu(type);
+                    return returnObj.Count > 0 ? Ok(returnObj) : NotFound("Full menu Not Found");
+                case "shot":
+                    returnObj = getDrinks.GetMenu(type);
+                    return returnObj.Count > 0 ? Ok(returnObj) : NotFound("Shot menu Not Found");
+                case "cocktail":
+                    returnObj = getDrinks.GetMenu(type);
+                    return returnObj.Count > 0 ? Ok(returnObj) : NotFound("Cocktail menu Not Found");
+                default:
+                    return NotFound("Type does not match");
+
             }
-            return NotFound("Coffeee not found");
+
         }
 
-
-        [HttpGet("GetPopularDrinks")]
-        public ActionResult GetPopularDrinks()
-        {
-
-            //drinkHelper getDrinks = new drinkHelper();
-
-            //var test = getDrinks.GetMenu("Shot");
-
-            var drinks = new List<string> { "drink1", "drink2", "drink2electricbugaloo", "test3", "pooru" };
-
-            if (drinks is not null)
-            {
-                return Ok(drinks);
-            }
-            return NotFound("Coffeee not found");
         }
-
-
-    }
 }

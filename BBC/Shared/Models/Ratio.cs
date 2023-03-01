@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-
-namespace BBC.Shared.BBC.Shared.Models;
+namespace BBC.Shared.Models;
 
 public partial class Ratio
 {
