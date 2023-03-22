@@ -5,7 +5,7 @@ namespace BBC.Shared.Models;
 
 public partial class Pump
 {
-    public long Pump1 { get; set; }
+    public long PumpID { get; set; }
 
     public string IngredientId { get; set; } = null!;
 

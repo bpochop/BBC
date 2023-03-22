@@ -101,13 +101,13 @@ public class BBC_DB : DbContext
 
         modelBuilder.Entity<Pump>(entity =>
         {
-            entity.HasKey(e => e.Pump1);
+            entity.HasKey(e => e.PumpID);
 
             entity.ToTable("pumps");
 
-            entity.Property(e => e.Pump1)
+            entity.Property(e => e.PumpID)
                 .ValueGeneratedNever()
-                .HasColumnName("pump");
+                .HasColumnName("PumpID");
             entity.Property(e => e.IngredientId)
                 .HasColumnType("varchar(100)")
                 .HasColumnName("ingredient_id");

@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using BBC.Server.Models;
+using Microsoft.VisualBasic;
 
 
 namespace BBC.Server.Helpers
@@ -14,12 +15,11 @@ namespace BBC.Server.Helpers
     public class drinkHelper
     {
 
-        public List<Menu>? theMenu { get; set; }
-        public List<IngredientId>? Ingredients { get; set; }
+        
 
         public List<Menu> GetMenu(string type)
         {
-
+            List<Menu> theMenu = new List<Menu>(); 
             var configBuilder = new ConfigurationBuilder()
                  .SetBasePath(Directory.GetCurrentDirectory())
                  .AddJsonFile("appsettings.json", optional: false, reloadOnChange: true);
@@ -56,6 +56,7 @@ namespace BBC.Server.Helpers
                         theMenu = getCocktails(db);
                         break;
                     default:
+                        theMenu = null;
                         break;
                 }
             }
@@ -76,17 +77,45 @@ namespace BBC.Server.Helpers
             return drinks;
         }
 
-        public List<Menu> getShots(DbContext db)
+        public List<Menu> getShots(BBC_DB db)
         {
-            List<Menu> strings = new List<Menu>();
+            List<Ratio> strings = new List<Ratio>();
+            List<Menu> returnObj = new List<Menu>();
+
+            var ingredients = getIngredientsInPumps(db);
 
 
-            return strings;
+            strings = db.Ratios.ToList(); 
+
+            foreach(var r in strings)
+            {
+                if (ingredients.Contains(r.Ingredient))
+                {
+
+                }
+            }
+
+            //strings = db.Ratios
+            //    .Where(r => r.Ingredient.All(i => ingredients.Contains(i.ToString())))
+            //    .ToList();  
+
+
+         
+
+
+            return returnObj;
         }
 
-        public List<Menu> getCocktails(DbContext db)
+        public List<Menu> getCocktails(BBC_DB db)
         {
             List<Menu> strings = new List<Menu>();
+
+
+            var ingredients = getIngredientsInPumps(db);
+
+
+            strings = db.Menus.Where(d => !ingredients.Except(db.Pumps.Select(p => p.IngredientId)).Any())
+                .ToList();
 
 
             return strings;
@@ -94,20 +123,34 @@ namespace BBC.Server.Helpers
 
         public List<Menu> getFullMenu(BBC_DB db)
         {
-           var drinks = db.Menus.ToList();
+            List<Menu> strings = new List<Menu>();
+
+            var ingredients = getIngredientsInPumps(db);
 
 
-            return drinks;
+            strings = db.Menus
+                 .Where(d => !ingredients.Except(db.Pumps.Select(p => p.IngredientId)).Any())
+                .ToList();
+
+            return strings;
         }
 
 
 
-        public List<Menu> formatDbSet(DbSet<Menu> dbSet)
+     
+        public List<string> getIngredientsInPumps(BBC_DB db)
         {
-            List<Menu> strings = new List<Menu>();
+            List<Pump> ingredients = new List<Pump>();
+            List<string> returnString = new List<string>(); 
 
+            ingredients = db.Pumps.ToList();
 
-            return strings; 
+            foreach (var idx in ingredients)
+            {
+                returnString.Add(idx.IngredientId.ToString());  
+            }
+
+            return returnString; 
 
         }
     }
