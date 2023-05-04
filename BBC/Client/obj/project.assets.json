@@ -6150,23 +6150,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\bpoch\\.nuget\\packages\\": {},
+    "C:\\Users\\brpochop\\.nuget\\packages\\": {},
     "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\bpoch\\source\\repos\\BBC\\BBC\\Client\\BBC.Client.csproj",
+      "projectUniqueName": "C:\\Users\\brpochop\\source\\repos\\BBC\\BBC\\Client\\BBC.Client.csproj",
       "projectName": "BBC.Client",
-      "projectPath": "C:\\Users\\bpoch\\source\\repos\\BBC\\BBC\\Client\\BBC.Client.csproj",
-      "packagesPath": "C:\\Users\\bpoch\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\bpoch\\source\\repos\\BBC\\BBC\\Client\\obj\\",
+      "projectPath": "C:\\Users\\brpochop\\source\\repos\\BBC\\BBC\\Client\\BBC.Client.csproj",
+      "packagesPath": "C:\\Users\\brpochop\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\brpochop\\source\\repos\\BBC\\BBC\\Client\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
       ],
       "configFilePaths": [
-        "C:\\Users\\bpoch\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\brpochop\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
@@ -6175,15 +6175,15 @@
       ],
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-        "C:\\Program Files\\dotnet\\library-packs": {},
-        "https://api.nuget.org/v3/index.json": {}
+        "https://api.nuget.org/v3/index.json": {},
+        "https://appdev-pkg.pepperdine.edu/v3/index.json": {}
       },
       "frameworks": {
         "net7.0": {
           "targetAlias": "net7.0",
           "projectReferences": {
-            "C:\\Users\\bpoch\\source\\repos\\BBC\\BBC\\Shared\\BBC.Shared.csproj": {
-              "projectPath": "C:\\Users\\bpoch\\source\\repos\\BBC\\BBC\\Shared\\BBC.Shared.csproj"
+            "C:\\Users\\brpochop\\source\\repos\\BBC\\BBC\\Shared\\BBC.Shared.csproj": {
+              "projectPath": "C:\\Users\\brpochop\\source\\repos\\BBC\\BBC\\Shared\\BBC.Shared.csproj"
             }
           }
         }
@@ -6230,7 +6230,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.200\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.201\\RuntimeIdentifierGraph.json"
       }
     },
     "runtimes": {

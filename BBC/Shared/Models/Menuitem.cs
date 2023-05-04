@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace BBC.Shared.Models;
 
-public partial class Menu
+public partial class Menuitem
 {
     public long Id { get; set; }
 
